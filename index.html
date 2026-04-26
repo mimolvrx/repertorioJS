@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto Interações Web (UC3)</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="header">
+        <div class="container header__content">
+            <a class="brand" href="#" aria-label="Página inicial">
+                <span class="brand__dot" aria-hidden="true"></span>
+                <span class="brand__text">UC3 Interações</span>
+            </a>
+
+            <button id="menuBtn" class="menu-btn" type="button" aria-label="Abrir menu" aria-controls="menu"
+                aria-expanded="false">
+                <span class="menu-btn__bar" aria-hidden="true"></span>
+                <span class="menu-btn__bar" aria-hidden="true"></span>
+                <span class="menu-btn__bar" aria-hidden="true"></span>
+            </button>
+
+            <nav id="menu" class="nav" aria-label="Navegação principal">
+                <a class="nav__link" href="#interacoes">Interações</a>
+                <a class="nav__link" href="#tabs">Tabs</a>
+                <a class="nav__link" href="#carrossel">Carrossel</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo" class="main">
+        <section class="hero">
+            <div class="container hero__content">
+                <div class="hero__text">
+                    <h1>Projeto base para instrumentar interações em sites</h1>
+                    <p>
+                        Um projeto simples (HTML + CSS + JS) para praticar:
+                        menu mobile, modal, tabs e carrossel.
+                    </p>
+
+                    <div class="hero__actions">
+                        <button id="openModalBtn" class="btn btn--primary" type="button">
+                            Abrir modal
+                        </button>
+
+                        <button id="toggleInfoBtn" class="btn btn--ghost" type="button" aria-expanded="false"
+                            aria-controls="infoBox">
+                            Mostrar detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero__card" aria-label="Cartão de destaque">
+                    <h2 class="hero__card-title">Checklist da aula</h2>
+                    <ul class="checklist">
+                        <li>querySelector + eventos</li>
+                        <li>classList.toggle()</li>
+                        <li>Estados: ativo/aberto</li>
+                        <li>UI acessível</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="interacoes" class="section">
+            <div class="container">
+                <h2>Interações essenciais</h2>
+                <p class="muted">
+                    Aqui você trabalha mostrar/ocultar e estados da interface.
+                </p>
+
+                <div id="infoBox" class="info-box" hidden>
+                    <h3>Detalhes</h3>
+                    <p>
+                        Essa área aparece/desaparece com JavaScript usando <code>hidden</code>
+                        e <code>aria-expanded</code>. Ideal para treinar toggle e acessibilidade.
+                    </p>
+                    <p class="muted">
+                        Sugestão de exercício: trocar texto do botão entre “Mostrar” e “Ocultar”.
+                    </p>
+                </div>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Mini desafio 1</h3>
+                        <p>Ao clicar, troque o texto deste card via JS.</p>
+                        <button id="changeTextBtn" class="btn btn--small" type="button">Trocar texto</button>
+                        <p id="changeTextTarget" class="muted" aria-live="polite">Texto original do card.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Mini desafio 2</h3>
+                        <p>Ative um “modo destaque” (toggle de classe).</p>
+                        <button id="highlightBtn" class="btn btn--small" type="button" aria-pressed="false">
+                            Alternar destaque
+                        </button>
+                        <div id="highlightBox" class="highlight-box" role="status">
+                            Caixa de destaque
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="tabs" class="section section--alt">
+            <div class="container">
+                <h2>Tabs (Abas)</h2>
+                <p class="muted">Estrutura pronta para treinar controle de estado e DOM.</p>
+
+                <div class="tabs" data-tabs>
+                    <div class="tabs__list" role="tablist" aria-label="Seções do conteúdo">
+                        <button class="tab is-active" type="button" role="tab" aria-selected="true"
+                            aria-controls="panel-1" id="tab-1">
+                            Visão geral
+                        </button>
+                        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-2"
+                            id="tab-2">
+                            Regras
+                        </button>
+                        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-3"
+                            id="tab-3">
+                            Dicas
+                        </button>
+                    </div>
+
+                    <div class="tabs__panels">
+                        <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+                            <h3>Visão geral</h3>
+                            <p>
+                                Tabs são ótimas para treinar: seleção, classe ativa, esconder/mostrar,
+                                e conteúdo que muda sem recarregar a página.
+                            </p>
+                        </div>
+                        <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+                            <h3>Regras</h3>
+                            <ul>
+                                <li>Uma tab ativa por vez</li>
+                                <li>Troca atualiza <code>aria-selected</code></li>
+                                <li>Painéis alternam com <code>hidden</code></li>
+                            </ul>
+                        </div>
+                        <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+                            <h3>Dicas</h3>
+                            <p class="muted">
+                                Desafio: permitir navegação por teclado (setas esquerda/direita).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="carrossel" class="section">
+            <div class="container">
+                <h2>Carrossel</h2>
+                <p class="muted">
+                    Estrutura simples, fácil de explicar: índice atual, renderização e botões.
+                </p>
+
+                <div class="carousel" data-carousel aria-label="Carrossel de imagens ilustrativas">
+                    <div class="carousel__viewport">
+                        <div class="slide is-active" aria-label="Slide 1 de 4">
+                            <div class="slide__content">
+                                <h3>Slide 1</h3>
+                                <p>Conteúdo ilustrativo para treinar carrossel.</p>
+                            </div>
+                        </div>
+                        <div class="slide" aria-label="Slide 2 de 4" hidden>
+                            <div class="slide__content">
+                                <h3>Slide 2</h3>
+                                <p>Você pode substituir por imagens reais depois.</p>
+                            </div>
+                        </div>
+                        <div class="slide" aria-label="Slide 3 de 4" hidden>
+                            <div class="slide__content">
+                                <h3>Slide 3</h3>
+                                <p>Botões Prev/Next + bolinhas (dots).</p>
+                            </div>
+                        </div>
+                        <div class="slide" aria-label="Slide 4 de 4" hidden>
+                            <div class="slide__content">
+                                <h3>Slide 4</h3>
+                                <p>Desafio: autoplay + pause no hover/foco.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel__controls">
+                        <button class="btn btn--small" type="button" data-prev aria-label="Slide anterior">◀</button>
+                        <div class="dots" role="tablist" aria-label="Selecionar slide">
+                            <button class="dot is-active" type="button" data-dot="0" aria-label="Ir para slide 1"
+                                aria-pressed="true"></button>
+                            <button class="dot" type="button" data-dot="1" aria-label="Ir para slide 2"
+                                aria-pressed="false"></button>
+                            <button class="dot" type="button" data-dot="2" aria-label="Ir para slide 3"
+                                aria-pressed="false"></button>
+                            <button class="dot" type="button" data-dot="3" aria-label="Ir para slide 4"
+                                aria-pressed="false"></button>
+                        </div>
+                        <button class="btn btn--small" type="button" data-next aria-label="Próximo slide">▶</button>
+                    </div>
+
+                    <div class="carousel__meta muted" aria-live="polite">
+                        Slide <span data-current>1</span> de <span data-total>4</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+    <div id="modalOverlay" class="modal-overlay" hidden>
+        <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+            aria-describedby="modalDesc" tabindex="-1">
+            <div class="modal__header">
+                <h2 id="modalTitle">Modal de exemplo</h2>
+                <button id="closeModalBtn" class="icon-btn" type="button" aria-label="Fechar modal">✕</button>
+            </div>
+            <p id="modalDesc" class="muted">
+                Este modal fecha pelo botão, clicando fora ou apertando ESC. Também prende o foco.
+            </p>
+            <div class="modal__actions">
+                <button id="confirmBtn" class="btn btn--primary" type="button">Confirmar</button>
+                <button id="cancelBtn" class="btn btn--ghost" type="button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="api" class="section">
+        <div class="container">
+            <h2>Dados vindos do Back-End (Fetch)</h2>
+            <p class="muted">
+                Nesta seção, os dados são carregados via requisição HTTP e exibidos dinamicamente.
+            </p>
+
+            <div class="api-actions">
+                <button id="loadUsersBtn" class="btn btn--primary" type="button">
+                    Carregar usuários
+                </button>
+                <button id="clearUsersBtn" class="btn btn--ghost" type="button">
+                    Limpar lista
+                </button>
+            </div>
+
+            <div id="apiStatus" class="muted" role="status" aria-live="polite"></div>
+
+            <ul id="usersList" class="users-list"></ul>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container footer__content">
+            <span class="muted">UC3 • Interações Web</span>
+            <button id="backToTopBtn" class="btn btn--small" type="button">Voltar ao topo</button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
