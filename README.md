@@ -3,7 +3,7 @@
 Este projeto foi desenvolvido com fins educacionais e reúne diversas práticas de **JavaScript** focadas em manipulação do DOM e interatividade no front-end.
 
 🔗 Acesse o projeto:
-👉 [https://mimolvrx.github.io/repertorioJS/](https://mimolvrx.github.io/repertorioJS/)
+ [https://mimolvrx.github.io/repertorioJS/](https://mimolvrx.github.io/repertorioJS/)
 
 ---
 
